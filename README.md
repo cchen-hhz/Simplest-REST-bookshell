@@ -10,4 +10,4 @@
 node app.js
 ```
 
-![](example.png)
+![](./source/example.png)
