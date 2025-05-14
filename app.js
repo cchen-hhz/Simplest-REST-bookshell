@@ -10,6 +10,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+try{
+    fs.accessSync(__dirname + '/books.json', fs.constants.F_OK);
+} catch (err) {
+    console.log("Creating books.json");
+    fs.writeFileSync(__dirname + '/books.json', JSON.stringify([]));
+}
+
 app.get('/', (req, res) => {
     res.redirect('/index.html');
 });
